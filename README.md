@@ -1,3 +1,6 @@
+# Media Stack
+This repository is responsible for all of the apps/services required for my home media stack. All containers are defined in Terraform, as defined below:
+
 ## Requirements
 
 | Name | Version |
