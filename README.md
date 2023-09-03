@@ -5,6 +5,7 @@ This repository is responsible for all of the apps/services required for my home
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 4.13.0 |
 | <a name="requirement_docker"></a> [docker](#requirement\_docker) | 3.0.2 |
 | <a name="requirement_sonarr"></a> [sonarr](#requirement\_sonarr) | 3.0.0 |
 
@@ -12,6 +13,7 @@ This repository is responsible for all of the apps/services required for my home
 
 | Name | Version |
 |------|---------|
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 4.13.0 |
 | <a name="provider_docker"></a> [docker](#provider\_docker) | 3.0.2 |
 | <a name="provider_sonarr"></a> [sonarr](#provider\_sonarr) | 3.0.0 |
 
@@ -23,6 +25,12 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [cloudflare_record.overseerr](https://registry.terraform.io/providers/cloudflare/cloudflare/4.13.0/docs/resources/record) | resource |
+| [cloudflare_record.radarr](https://registry.terraform.io/providers/cloudflare/cloudflare/4.13.0/docs/resources/record) | resource |
+| [cloudflare_record.sabnzbd](https://registry.terraform.io/providers/cloudflare/cloudflare/4.13.0/docs/resources/record) | resource |
+| [cloudflare_record.sonarr](https://registry.terraform.io/providers/cloudflare/cloudflare/4.13.0/docs/resources/record) | resource |
+| [cloudflare_tunnel.cf_tunnel](https://registry.terraform.io/providers/cloudflare/cloudflare/4.13.0/docs/resources/tunnel) | resource |
+| [cloudflare_tunnel_config.cf_tunnel_config](https://registry.terraform.io/providers/cloudflare/cloudflare/4.13.0/docs/resources/tunnel_config) | resource |
 | [docker_container.overseerr](https://registry.terraform.io/providers/kreuzwerker/docker/3.0.2/docs/resources/container) | resource |
 | [docker_container.radarr](https://registry.terraform.io/providers/kreuzwerker/docker/3.0.2/docs/resources/container) | resource |
 | [docker_container.sabnzbd](https://registry.terraform.io/providers/kreuzwerker/docker/3.0.2/docs/resources/container) | resource |
@@ -48,6 +56,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_cf_tunnel_name"></a> [cf\_tunnel\_name](#input\_cf\_tunnel\_name) | Name for the Cloudflare Tunnel. Modification forces creation of a new resource. | `string` | n/a | yes |
+| <a name="input_cf_tunnel_secret"></a> [cf\_tunnel\_secret](#input\_cf\_tunnel\_secret) | Secret for the Cloudflare tunnel. 32 or more bytes, encoded as a base64 string. | `string` | n/a | yes |
+| <a name="input_cf_zone_id"></a> [cf\_zone\_id](#input\_cf\_zone\_id) | Cloudflare Zone ID | `string` | n/a | yes |
+| <a name="input_cloudflare_account_id"></a> [cloudflare\_account\_id](#input\_cloudflare\_account\_id) | Cloudflare Account ID | `string` | n/a | yes |
+| <a name="input_cloudflare_api_token"></a> [cloudflare\_api\_token](#input\_cloudflare\_api\_token) | Cloudflare API Token | `string` | n/a | yes |
 | <a name="input_discord_sonarr_webhook"></a> [discord\_sonarr\_webhook](#input\_discord\_sonarr\_webhook) | Weebhook URL for Discord / Sonarr Integration | `string` | n/a | yes |
 | <a name="input_host_ip"></a> [host\_ip](#input\_host\_ip) | IP of the host running the stack | `string` | n/a | yes |
 | <a name="input_movies_path"></a> [movies\_path](#input\_movies\_path) | n/a | `string` | `"/Volumes/MEDIA/Movies"` | no |
@@ -73,4 +86,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_overseerr_url"></a> [overseerr\_url](#output\_overseerr\_url) | n/a |
+| <a name="output_radarr_url"></a> [radarr\_url](#output\_radarr\_url) | n/a |
+| <a name="output_sabnzbd_url"></a> [sabnzbd\_url](#output\_sabnzbd\_url) | n/a |
 | <a name="output_sonarr_url"></a> [sonarr\_url](#output\_sonarr\_url) | n/a |
