@@ -1,0 +1,6 @@
+*.pyc
+venv/
+.terraform/
+*.terraform*
+*.tfstate*
+.env
