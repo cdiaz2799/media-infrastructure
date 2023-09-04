@@ -22,7 +22,7 @@ resource "sonarr_media_management" "sonarr" {
   rescan_after_refresh   = "always"
   skip_free_space_check  = true
 
-  depends_on = [docker_container.sonarr]
+  depends_on = [module.sonarr]
 }
 
 resource "sonarr_naming" "naming" {
@@ -38,12 +38,12 @@ resource "sonarr_naming" "naming" {
   specials_folder_format  = "Specials"
   standard_episode_format = "{Series Title} - S{season:00}E{episode:00} - {Episode Title} {Quality Full}"
 
-  depends_on = [docker_container.sonarr]
+  depends_on = [module.sonarr]
 }
 
 resource "sonarr_root_folder" "root" {
   path       = "/tv"
-  depends_on = [docker_container.sonarr]
+  depends_on = [module.sonarr]
 
 }
 
@@ -59,6 +59,8 @@ resource "sonarr_notification_discord" "discord" {
   web_hook_url = var.discord_sonarr_webhook
   avatar       = "https://res.cloudinary.com/razordarkamg/image/upload/v1621212884/SonarrV3_pufacd.png"
   username     = "Sonarr"
+  depends_on   = [module.sabnzbd]
+
 }
 
 resource "sonarr_notification_telegram" "telegram" {
@@ -73,6 +75,8 @@ resource "sonarr_notification_telegram" "telegram" {
   chat_id   = var.telegram_sonarr_chatid
 
   send_silently = true
+  depends_on    = [module.sabnzbd]
+
 }
 
 resource "sonarr_notification_plex" "plex" {
@@ -92,6 +96,7 @@ resource "sonarr_notification_plex" "plex" {
   use_ssl = false
 
   auth_token = var.plex_token
+  depends_on = [module.sabnzbd]
 
 }
 ## Configure Download Client
@@ -111,7 +116,7 @@ resource "sonarr_download_client_sabnzbd" "sabnzbd" {
   remove_completed_downloads = true
   remove_failed_downloads    = true
 
-  depends_on = [docker_container.sabnzbd]
+  depends_on = [module.sabnzbd]
 }
 
 ## Configure Indexer
@@ -132,6 +137,6 @@ resource "sonarr_indexer_newznab" "nzbgeek" {
 
   download_client_id = sonarr_download_client_sabnzbd.sabnzbd.id
 
-  depends_on = [docker_container.sonarr]
+  depends_on = [module.sonarr]
 
 }

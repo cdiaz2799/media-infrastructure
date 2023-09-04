@@ -4,19 +4,19 @@ resource "cloudflare_tunnel_config" "cf_tunnel_config" {
 
   config {
     ingress_rule {
-      hostname = cloudflare_record.overseerr.hostname
+      hostname = module.overseerr.service_hostname
       service  = "http://localhost:${var.overseerr_port}"
     }
     ingress_rule {
-      hostname = cloudflare_record.radarr.hostname
+      hostname = module.radarr.service_hostname
       service  = "http://localhost:${var.radarr_port}"
     }
     ingress_rule {
-      hostname = cloudflare_record.sabnzbd.hostname
+      hostname = module.sabnzbd.service_hostname
       service  = "http://localhost:${var.sabnzbd_port}"
     }
     ingress_rule {
-      hostname = cloudflare_record.sonarr.hostname
+      hostname = module.sonarr.service_hostname
       service  = "http://localhost:${var.sonarr_port}"
     }
     ingress_rule {
