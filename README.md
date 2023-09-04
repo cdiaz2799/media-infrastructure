@@ -5,7 +5,7 @@ This repository is responsible for all of the apps/services required for my home
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 4.13.0 |
+| <a name="requirement_cloudflare">clear</a> [cloudflare](#requirement\_cloudflare) | 4.13.0 |
 | <a name="requirement_docker"></a> [docker](#requirement\_docker) | 3.0.2 |
 | <a name="requirement_sonarr"></a> [sonarr](#requirement\_sonarr) | 3.0.0 |
 
