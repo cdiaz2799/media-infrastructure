@@ -104,8 +104,8 @@ resource "sonarr_download_client_sabnzbd" "sabnzbd" {
   enable                     = true
   priority                   = 1
   name                       = "SABnzbd"
-  host                       = var.host_ip
-  port                       = var.sabnzbd_port
+  host                       = "sabnzbd.cdiaz.cloud"
+  port                       = 80
   use_ssl                    = false
   api_key                    = var.sabnzbd_api_key
   username                   = var.sabnzbd_username

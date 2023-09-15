@@ -15,10 +15,21 @@ terraform {
   }
 }
 
+# Get Image Disgest
+data "docker_registry_image" "image_data" {
+  name = var.service_image
+}
+
+# Get Image Resource
+resource "docker_image" "image" {
+  name = data.docker_registry_image.image_data.name
+  pull_triggers = [ data.docker_registry_image.image_data.sha256_digest ]
+}
+
 resource "docker_container" "service" {
   name     = var.service_name
   hostname = var.service_name
-  image    = var.service_image
+  image    = docker_image.image.image_id
   restart  = "unless-stopped"
   start    = true
 

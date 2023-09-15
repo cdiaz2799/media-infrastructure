@@ -13,7 +13,7 @@ resource "cloudflare_tunnel_config" "cf_tunnel_config" {
     }
     ingress_rule {
       hostname = module.sabnzbd.service_hostname
-      service  = "http://localhost:${var.sabnzbd_port}"
+      service  = "http://sabnzbd.orb.local"
     }
     ingress_rule {
       hostname = module.sonarr.service_hostname
